@@ -46,8 +46,11 @@ class SharedDatabase extends _$SharedDatabase {
   }
 
   Future<int> setTodo(TodosCompanion companion) async {
+    //print('old id: ${companion.id.value}');
+    //print(
+    //    'new vals: \n${companion.title.value}\n${companion.description.value}\n${companion.completed.value}');
     final newId = await into(todos).insertOnConflictUpdate(companion);
-    print('new id: $newId');
+    //print('new id: $newId');
     //PlaylistsCompanion.insert(name: )
     return newId;
   }

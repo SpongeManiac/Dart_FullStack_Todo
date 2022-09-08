@@ -32,5 +32,5 @@ Middleware asyncDBProvider() {
 }
 
 Handler middleware(Handler handler) {
-  return handler.use(asyncDBProvider());
+  return handler.use(requestLogger()).use(asyncDBProvider());
 }

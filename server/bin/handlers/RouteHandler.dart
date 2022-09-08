@@ -1,5 +1,7 @@
 import 'package:dart_frog/dart_frog.dart';
 
+import '../database/database.dart';
+
 abstract class RouteHandler<T1, T2> {
   RouteHandler(this.context, this.input);
 
@@ -28,7 +30,7 @@ abstract class RouteHandler<T1, T2> {
     }
   }
 
-  Future<Response> handleAsync(RequestContext context, T1 input) async {
+  Future<Response> handleAsync() async {
     switch (context.request.method) {
       case HttpMethod.delete:
         return await deleteAsync();
@@ -49,9 +51,9 @@ abstract class RouteHandler<T1, T2> {
     }
   }
 
-  bool validate();
-  Future<bool> validateAsync() async {
-    return validate();
+  bool validate_input();
+  Future<bool> validate_inputAsync() async {
+    return validate_input();
   }
 
   Response delete() {
