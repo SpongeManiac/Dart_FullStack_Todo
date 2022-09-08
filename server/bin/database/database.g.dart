@@ -7,7 +7,6 @@ part of 'database.dart';
 // **************************************************************************
 
 // ignore_for_file: type=lint
-
 class TodoData extends DataClass implements Insertable<TodoData> {
   final int id;
   final String title;

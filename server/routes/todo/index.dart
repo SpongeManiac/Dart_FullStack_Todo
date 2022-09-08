@@ -2,8 +2,8 @@ import 'package:dart_frog/dart_frog.dart';
 import 'package:drift/drift.dart';
 import 'package:todo/todo.dart';
 
-import '../../database/database.dart';
-import '../../validators.dart';
+import '../../bin/database/database.dart';
+import '../../bin/validators.dart';
 
 Future<Response> onRequest(RequestContext context) async {
   switch (context.request.method) {

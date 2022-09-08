@@ -4,14 +4,14 @@ import 'package:dart_frog/dart_frog.dart';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:path/path.dart' as p;
-import '../database/database.dart';
+import '../bin/database/database.dart';
 
 SharedDatabase? db;
 
 Middleware asyncDBProvider() {
   return provider<Future<SharedDatabase>>(
     (context) async {
-      if (db == null) {
+      if (db != null) {
         return db!;
       } else {
         var tmp = LazyDatabase(

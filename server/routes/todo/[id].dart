@@ -1,5 +1,8 @@
 import 'package:dart_frog/dart_frog.dart';
 
-Response onRequest(RequestContext context, String idString) {
-  return Response();
+import '../../bin/TodoIDHandler.dart';
+
+Future<Response> onRequest(RequestContext context, String idString) async {
+  var handler = TodoIDHandler(context, idString);
+  return await handler.handleAsync(context, idString);
 }
