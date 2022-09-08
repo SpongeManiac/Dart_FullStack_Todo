@@ -37,6 +37,7 @@ dependencies:
   http: ^0.13.5
   todo:
     path: packages/todo
+  flutter_emoji: ^2.4.0
 
 dev_dependencies:
   flutter_test:

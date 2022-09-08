@@ -101,4 +101,15 @@ class TodoIDHandler extends RouteHandler<String, int> {
       return badRequest();
     }
   }
+
+  @override
+  Future<Response> optionsAsync() async {
+    return Response(
+      statusCode: 200,
+      headers: {
+        'Allow': '*',
+        'Access-Control-Allow-Methods': '*',
+      },
+    );
+  }
 }

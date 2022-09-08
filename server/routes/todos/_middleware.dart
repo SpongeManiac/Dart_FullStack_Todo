@@ -7,18 +7,14 @@ Handler middleware(Handler handler) {
     // Forward the request to the respective handler.
     final response = await handler(context);
 
-    // var newHeaders = Map.of(response.headers);
-    // newHeaders['Accept'] = 'application/json';
-    // newHeaders['Access-Control_Allow_Origin'] = '*';
-
-    // var alteredResponse = response.copyWith(
-    //   headers: newHeaders,
-    // );
-
-    // print('body: ${response.toString()}');
-
-    // // Return a response.
-    // return alteredResponse;
-    return response;
+    var newHeaders = Map.of(response.headers);
+    //newHeaders['Accept'] = 'application/json';
+    newHeaders['Access-Control-Allow-Origin'] = '*';
+    var alteredResponse = response.copyWith(
+      headers: newHeaders,
+    );
+    print('body: ${response.toString()}');
+    // Return a response.
+    return alteredResponse;
   };
 }

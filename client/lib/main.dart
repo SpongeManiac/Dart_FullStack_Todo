@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter/Django Fullstack App'),
+      home: const MyHomePage(title: 'Pure Dart Fullstack App'),
     );
   }
 }
@@ -273,7 +273,7 @@ class _MyHomePageState extends CRUDState<Todo> {
   @override
   Future<void> delete(Todo item) async {
     await TodoAPI.delTodo(item);
-    //setState(() {});
+    setState(() {});
   }
 
   @override
