@@ -63,7 +63,6 @@ class TodoAPI {
     try {
       var uri = Uri.parse('$todosUri/${todo.id}');
       var response = await http.put(uri, body: json.encode(todo));
-      print(response.body);
       if (response.statusCode == 200) {
         return true;
       } else {

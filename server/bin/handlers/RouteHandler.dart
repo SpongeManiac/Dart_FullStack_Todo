@@ -1,7 +1,5 @@
 import 'package:dart_frog/dart_frog.dart';
 
-import '../database/database.dart';
-
 abstract class RouteHandler<T1, T2> {
   RouteHandler(this.context, this.input);
 
