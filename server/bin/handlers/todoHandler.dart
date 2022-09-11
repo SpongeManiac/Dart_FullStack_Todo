@@ -3,6 +3,7 @@ import 'package:drift/drift.dart';
 import 'package:todo/todo.dart';
 
 import '../database/database.dart';
+import '../todo_converter.dart';
 import '../validators.dart';
 import 'RouteHandler.dart';
 
@@ -37,13 +38,7 @@ class TodoHandler extends RouteHandler<String, int> {
     Todo? todo = TodoValidator.validate(body);
     if (todo != null) {
       print('todo valid.');
-      todo.id = await db.setTodo(
-        TodosCompanion(
-          title: Value(todo.title),
-          description: Value(todo.description),
-          completed: Value(todo.completed),
-        ),
-      );
+      todo.id = await db.setTodo(TodoConverter.companionFromTodo(todo));
       if (todo.id > -1) {
         return Response.json(
           statusCode: 201,

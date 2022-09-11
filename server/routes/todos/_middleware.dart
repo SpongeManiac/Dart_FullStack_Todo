@@ -8,12 +8,11 @@ Handler middleware(Handler handler) {
     final response = await handler(context);
 
     var newHeaders = Map.of(response.headers);
-    //newHeaders['Accept'] = 'application/json';
+    //Allow all hosts for CORS (For local development)
     newHeaders['Access-Control-Allow-Origin'] = '*';
     var alteredResponse = response.copyWith(
       headers: newHeaders,
     );
-    print('body: ${response.toString()}');
     // Return a response.
     return alteredResponse;
   };
